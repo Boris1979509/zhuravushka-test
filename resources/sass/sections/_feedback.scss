@@ -1,0 +1,57 @@
+.feedback {
+    margin: 0 auto;
+    width: 50%;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #F2F2F2;
+
+    .btn {
+        width: auto;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 1.35;
+        letter-spacing: $letter-spacing-4;
+        margin-bottom: 40px;
+        @include mq($max-width: "450px") {
+            font-size: 1.3rem;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            margin-bottom: 20px;
+            background: #F2F2F2;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    }
+
+    select {
+        width: 100%;
+        display: block;
+        padding: 8px 20px;
+        border: 1px solid #ccc;
+        font-family: $font-pt-sans;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        letter-spacing: $letter-spacing-4;
+        color: #929292;
+        appearance: none; /* убираем дефолнтные стрелочки */
+    }
+
+    .select {
+        background-size: auto;
+        background: #fff url("../../images/icons/order-registration/order-arrow.svg") no-repeat top 50% right 20px;
+    }
+
+    @include mq($max-width: "767px") {
+        width: 100%;
+    }
+    @include mq($max-width: "450px") {
+        background: none;
+        padding: 0;
+        .btn {
+            width: 100%;
+        }
+    }
+}

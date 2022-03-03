@@ -1,0 +1,34 @@
+%templateFontStyle {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#services {
+    .services {
+        @include mq($min-width: "767px") {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+
+    .primary-info-block {
+        line-height: 1.5;
+        margin-top: 30px;
+    }
+
+    .search-map {
+        margin-bottom: 40px;
+    }
+
+    @include accordion;
+
+    .payment-method-info {
+        display: flex;
+        gap: 20px;
+        margin: 40px 0;
+        @include guaranteeBlock;
+        @include mq($max-width: "767px") {
+            flex-wrap: wrap;
+        }
+    }
+}

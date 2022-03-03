@@ -1,0 +1,38 @@
+.page-nav-menu {
+    display: flex;
+    align-items: flex-start;
+    margin: 30px 0;
+    row-gap: 20px;
+    flex-wrap: wrap;
+
+    &__item {
+        background: $bg-page-nav-button;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        letter-spacing: 0.04em;
+
+        .link {
+            color: $color-page-nav-button;
+            box-sizing: border-box;
+            line-height: 2.9;
+            font-size: 1rem;
+            padding: 12px 26px;
+            transition: color .5s;
+            &:hover{
+                color: $bg-page-nav-button-active;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+
+        &.active {
+            background: $bg-page-nav-button-active;
+
+            .link {
+                color: $color-page-nav-button-active;
+            }
+        }
+    }
+}

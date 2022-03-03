@@ -1,0 +1,25 @@
+#admin {
+    .admin-posts-categories {
+        .posts-category-wrap {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+
+            .category-content {
+                grid-row: auto;
+                grid-column: 1 / span 9;
+                @include mq($max-width: "1200px") {
+                    grid-column: 1/span 12;
+                }
+            }
+
+            .category-info {
+                grid-column: 10 / 13;
+                @include mq($max-width: "1200px") {
+                    grid-column: 1 / span 12;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.cabinet__sorting {
+    @extend %templateFlex;
+    @include mq($min-width: "767px") {
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #DBDBDB;
+        margin-bottom: 30px;
+    }
+
+}
+
+.cabinet__sorting-options {
+    @extend %templateFlex;
+    column-gap: 10px;
+    @include mq($max-width: "767px") {
+        justify-content: end !important;
+        row-gap: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+.cabinet__sorting-link {
+    @extend %templateFontStyle;
+    position: relative;
+    text-decoration: none;
+    color: #404040;
+
+    &.active {
+        color: #0075d2;
+
+        &:after {
+            bottom: -17px;
+            content: "";
+            display: block;
+            height: 5px;
+            left: 0;
+            position: absolute;
+            background: #0075d2;
+            transition: width .3s ease 0s, left 0s ease 0s;
+            width: 100%;
+            @include mq($max-width: "767px") {
+                bottom: -5px;
+            }
+        }
+    }
+}
+
+.cabinet__sorting-logout {
+    align-self: flex-end;
+    @extend %templateFlex;
+
+    .link {
+        @extend %templateFontStyle;
+        color: $color-body-default;
+        font-weight: 600;
+    }
+
+    @include mq($max-width: "767px") {
+        display: none !important;
+    }
+}

@@ -1,0 +1,70 @@
+// Base
+@import "base/typography";
+@import "base/variables";
+@import "base/reset";
+@import "../../node_modules/sass-mediaqueries/media-queries";
+@import "../../node_modules/tiny-slider/src/tiny-slider";
+
+// helpers
+@import "helpers/mixins";
+@import "custom";
+
+// Datepicker
+@import '../../node_modules/vanillajs-datepicker/sass/datepicker';
+
+// Sections
+@import "sections/header";
+@import "sections/footer";
+@import "sections/homepage-top-grid";
+@import "sections/page-menu-nav";
+@import "sections/about";
+@import "sections/contacts";
+@import "sections/providers";
+@import "sections/requisites";
+@import "sections/services";
+@import "sections/cut-metal";
+@import "sections/rental";
+@import "sections/blog";
+@import "sections/side-bar";
+@import "sections/cart";
+@import "sections/product";
+@import "sections/order-registration";
+@import "sections/form-label";
+@import "sections/category";
+@import "sections/login";
+@import "sections/register";
+@import "sections/reset-password";
+@import "sections/compare";
+@import "sections/favorite";
+@import "sections/cabinet";
+@import "sections/catalog";
+@import "sections/feedback";
+@import "sections/verify-phone";
+@import "sections/info-order";
+@import "sections/returnMoney";
+@import "sections/search";
+@import "sections/stocks";
+
+// Components
+@import "components/homepageSlider";
+@import "components/breadcrumbs";
+@import "components/paginator";
+@import "components/glider";
+@import "components/tabs";
+@import "components/card";
+@import "components/banner";
+@import "components/leaderSales";
+@import "components/loader";
+@import "components/alerts";
+@import "components/validate";
+@import "components/cabinet-sort";
+@import "components/search";
+@import "components/footer-navbar-mobile";
+
+// Admin
+@import "admin/custom";
+@import "admin/users";
+@import "admin/posts";
+@import "admin/posts-categories";
+@import "admin/orders";
+

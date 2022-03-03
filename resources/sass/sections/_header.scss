@@ -1,0 +1,241 @@
+/* Start header */
+header {
+    z-index: 1001;
+    /* Start top-bar */
+    .top-bar {
+        background: $bg-top-bar;
+        letter-spacing: $letter-spacing-4;
+        color: $color-text-top-bar;
+        font-size: .8125rem;
+        line-height: .6;
+        padding: .5rem 0;
+
+        &__row {
+            justify-content: space-between;
+            align-items: center;
+            align-content: stretch;
+            gap: 10px;
+        }
+
+        /* top-bar__nav */
+        &__nav {
+            text-align: center;
+        }
+
+        &__nav-item {
+            display: inline-block;
+            margin-right: 35px;
+        }
+
+        &__nav-link {
+            position: relative;
+            padding-bottom: 8px;
+            @include hoverUnderline($color-text-top-bar, 2px);
+            font-size: inherit;
+        }
+
+        &__right {
+            margin-left: auto;
+
+            ul {
+                li {
+                    display: inline-block;
+                    font-weight: bold;
+                    font-size: inherit;
+
+                    &:last-child {
+                        margin-left: 35px;
+                    }
+                }
+            }
+        }
+
+        &__phone {
+            margin: 0 auto;
+            font-style: normal;
+            font-weight: bold;
+            align-self: normal;
+
+            span {
+                &:before {
+                    content: "";
+                    background: url('../../images/icons/phone-icon.svg') no-repeat;
+                    height: 13px;
+                    width: 13px;
+                    display: inline-block;
+                    margin-right: 13px;
+                }
+            }
+
+            @include mq($max-width: 990px) {
+                display: none;
+            }
+
+            &.mobile {
+                display: none;
+                @include mq($max-width: 990px) {
+                    display: block;
+                    margin: 0;
+                }
+            }
+        }
+
+        @include mq($max-width: 990px) {
+            nav {
+                display: none;
+            }
+        }
+    }
+
+    /* End top-bar */
+
+    /* Start sub-header */
+    .sub-header {
+        background: $bg-sub-header;
+        width: 100%;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+        z-index: 3;
+
+        &__row {
+            justify-content: flex-start;
+            align-items: center;
+
+            .sub-header__logo-container {
+                width: 100%;
+                @include mq($min-width: 535px) {
+                    max-height: 64px;
+                    min-width: 280px;
+                    max-width: 280px;
+                    //height: 64px;
+                    align-items: center;
+                }
+
+                .sub-header__logo-img {
+                    transition: all 200ms ease-in 0s;
+                    background: url("../../images/logo/logo.svg") no-repeat left center;
+                    width: 212px;
+                    height: 64px;
+                    transform: translateY(0);
+                    display: inline-block;
+                }
+
+                .catalog-spoiler-btn {
+                    opacity: 0;
+                    visibility: hidden;
+                    position: absolute;
+                    left: -9999px;
+                    height: inherit;
+                    text-transform: none;
+                }
+
+                &.large-btn {
+                    .sub-header__logo-img {
+                        background: url("../../images/logo/logo-mini.svg") no-repeat left center;
+                        width: 77px;
+                        background-size: 77px;
+                        @include mq($max-width: 535px) {
+                            // display: none;
+                        }
+                    }
+
+                    .catalog-spoiler-btn {
+                        width: auto;
+                        transition: opacity 300ms ease-in 300ms; // delay 300ms
+                        opacity: 1;
+                        visibility: visible;
+                        position: relative;
+                        margin-left: 20px;
+                        left: auto;
+
+                        &:before {
+                            font-size: .875rem;
+                            line-height: 1.5;
+                            letter-spacing: 0.04em;
+                            content: "Каталог товаров";
+                        }
+
+                        @include mq($max-width: 535px) {
+                            //width: calc(100% - 130px);
+                            margin: 10px;
+                        }
+                    }
+
+                }
+
+            }
+
+            .sub-header__right {
+                margin-left: 24px;
+
+                a {
+                    &:not(:last-child) {
+                        margin-right: 24px;
+                    }
+                    .sub-header__label {
+                        font-family: $font-pt-sans;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 1rem;
+                        line-height: 1.5;
+                        letter-spacing: 0.05em;
+                        vertical-align: text-bottom;
+                    }
+
+                    @include mq($max-width: 990px) {
+                        &:not(:nth-of-type(3)) {
+                            .sub-header__label {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .qty {
+                        vertical-align: top;
+                    }
+                }
+
+                @include mq($max-width: 767px) {
+                    display: none;
+                }
+            }
+        }
+
+        /* End sub-header */
+    }
+}
+.icon {
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    margin-right: 12px;
+    position: relative;
+
+    &.compare__icon {
+        // background: url('../../images/icons/compare-icon.svg') no-repeat;
+        &.active {
+            path {
+                fill: $bg-color-icon-active;
+            }
+        }
+    }
+
+    &.favorite__icon {
+        // background: url('../../images/icons/heart-icon.svg') no-repeat;
+        &.active {
+            path {
+                fill: $bg-color-icon-active;
+            }
+        }
+    }
+
+    &.cart__icon {
+        // background: url('../../images/icons/cart-icon.svg') no-repeat;
+        &.active {
+            path {
+                fill: $bg-color-icon-active;
+            }
+        }
+    }
+}
+
+/* End header */

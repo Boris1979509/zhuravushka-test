@@ -1,0 +1,48 @@
+.phone-verify {
+    %templateFormInput {
+        .form-input {
+            margin-bottom: 10px;
+
+            &:first-child {
+                .input {
+                    width: inherit;
+                }
+            }
+
+            &:last-child {
+                margin-top: 34px;
+            }
+        }
+    }
+
+    .request-block, .verify-block {
+        .input {
+            border-radius: 0 !important;
+            height: 53px;
+
+            &:focus {
+                border: 2px solid #FC8507;
+            }
+        }
+    }
+
+    .request-block, .verify-block {
+        gap: 20px;
+        @extend %templateFormInput;
+    }
+
+    .code-confirm {
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: $letter-spacing-4;
+        text-decoration-line: underline;
+        color: #FC8507;
+        outline: none;
+        border: 0;
+        background: none;
+    }
+
+    .confirm-timer {
+        color: #A2A2A2;
+    }
+}

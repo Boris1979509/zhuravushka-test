@@ -1,0 +1,15 @@
+.invalid-feedback, .success-feedback {
+    margin-top: 10px;
+    color: red;
+    font-size: .8rem;
+    line-height: 1.2;
+    letter-spacing: $letter-spacing-6;
+}
+
+.success-feedback {
+    color: green !important;
+}
+
+.require {
+    color: #FC8507;
+}

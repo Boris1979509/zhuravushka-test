@@ -1,0 +1,73 @@
+.page-content {
+    display: block;
+}
+
+#about {
+    padding-bottom: 40px;
+
+    .about-statistic {
+        background: $bg-about-statistic;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        padding: 40px 60px;
+        @include mq($min-width: 990px) {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            column-gap: 20px;
+        }
+
+        &__item-sum {
+            font-weight: bold;
+            font-size: 4rem;
+            line-height: 1.5;
+            color: $color-statistic-sum;
+            @include mq($max-width: 990px) {
+                margin-bottom: 0;
+                padding-right: 0;
+                font-size: 2rem;
+            }
+        }
+
+        &__item {
+            span {
+                font-size: 1rem;
+                line-height: 1.5;
+                color: $color-span;
+                letter-spacing: 0.04em;
+            }
+
+            span:first-child {
+                margin-bottom: 5px;
+            }
+
+            @include mq($max-width: 990px) {
+                margin-bottom: 20px;
+                font-size: 2rem;
+            }
+        }
+
+    }
+
+    .about-company {
+        margin: 40px 0;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+        color: $color-span;
+
+        p:first-child {
+            margin-bottom: 20px;
+        }
+    }
+
+    .guarantee {
+        color: $color-span;
+        gap: 20px;
+        display: flex;
+        flex-flow: row;
+        @include mq($max-width: "900px") {
+            flex-flow: wrap;
+        }
+        @include guaranteeBlock;
+    }
+}

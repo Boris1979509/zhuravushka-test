@@ -1,0 +1,2 @@
+@include('pages.' . $subPage->page)
+

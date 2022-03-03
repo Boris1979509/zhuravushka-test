@@ -1,0 +1,254 @@
+#cabinet, #admin {
+    background: #fff;
+    padding: 30px 0;
+
+    %templateFlex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    %templateFontStyle {
+        font-size: 1rem;
+        line-height: 1.4;
+        letter-spacing: $letter-spacing-4;
+    }
+
+    .cabinet, .admin {
+        .link {
+            color: inherit;
+            font-size: 1rem;
+            text-decoration: underline;
+        }
+
+        .cabinet-orders, .admin-orders {
+            // margin-top: 30px;
+
+            &__item {
+                .content-block {
+                    @extend %templateFlex;
+                    border-bottom: 1px solid #CCCCCC;
+                    padding: 30px 0;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &__title-prop {
+                        font-size: 0.875rem;
+                        line-height: 1.3;
+                        letter-spacing: $letter-spacing-4;
+                        color: #858585;
+                    }
+
+                    &__title-value {
+                        font-size: 1.125rem;
+                        line-height: 1.3;
+                        letter-spacing: $letter-spacing-4;
+                        color: #404040;
+
+                        &.total {
+                            font-weight: bold;
+                        }
+                    }
+
+                    &__sub-content {
+                        background-color: white;
+                        width: 100%;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.2s ease-in-out;
+                        box-sizing: border-box;
+                        @include mq($min-width: "900px") {
+                            //margin-left: calc(23.4% - 10px);
+                        }
+                    }
+
+                    &__item {
+                        min-width: 16.7%;
+
+                        &.status-pending-payment,
+                        &.status-order-processing,
+                        &.status-order-confirmed,
+                        &.status-order-cancel {
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        &.status-pending-payment {
+                            @include cabinet-status('credit-card.svg', #0075D2);
+                            display: flex;
+                            justify-content: flex-end;
+
+                            & > div {
+                                text-align: right;
+                            }
+                        }
+
+                        &.status-order-processing {
+                            @include cabinet-status('clock.svg', #FC8507);
+                        }
+
+                        &.status-order-confirmed {
+                            @include cabinet-status('check-ok.svg', #3DBA29);
+                            display: flex;
+                            justify-content: flex-end;
+
+                            & > div {
+                                text-align: right;
+                            }
+                        }
+
+                        &.status-order-cancel {
+                            @include cabinet-status('check-cancel.svg', #EF2020);
+                        }
+                    }
+                }
+            }
+
+            .primary-info-block {
+                @extend %templateFlex;
+                margin-top: 30px;
+                font-size: 1rem;
+                line-height: 1.4;
+                letter-spacing: $letter-spacing-4;
+                color: #858585;
+
+                > div, path {
+                    transition: .3s;
+                    display: flex;
+                    align-items: center;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: #FC8507;
+
+                        path {
+                            fill: #FC8507;
+                        }
+                    }
+                }
+
+                svg {
+                    margin-right: 15px;
+                }
+            }
+        }
+
+        table {
+            margin-top: 30px;
+            text-align: left;
+
+            td, th {
+                padding: 10px;
+                vertical-align: middle;
+            }
+
+            ul {
+                > li {
+                    padding: 5px 0;
+                }
+            }
+        }
+
+        .accordion__button-item {
+            order: -1;
+            display: inline-block;
+            background: url("../../images/icons/cabinet/right-arrow.svg") no-repeat;
+            width: 10px;
+            height: 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+
+            &.active {
+                transform: rotateZ(90deg);
+            }
+        }
+
+        &.profile {
+            .table {
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+
+            .btn-go-on {
+                width: auto;
+            }
+        }
+
+        .count {
+            font-size: 1rem !important;
+            line-height: 1.2;
+            letter-spacing: 0.04em;
+            color: #B0B0B0;
+            vertical-align: top;
+        }
+
+        &__home {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+
+            &-link, .logout {
+                padding: 10px;
+                border: 1px solid #ccc;
+                text-align: center;
+                transition: .3s;
+                color: #858585;
+                text-decoration: none;
+                box-sizing: border-box;
+                font-size: 0.9rem;
+                line-height: 1.5;
+
+                &:hover {
+                    background: #E5E5E5;
+                    color: #0075D2;
+                }
+            }
+
+            .logout {
+                text-decoration: none !important;
+            }
+        }
+
+        .profile-setting {
+            &__user-data, &__user-address, &__user-change-password {
+                column-gap: 60px;
+                row-gap: 20px;
+            }
+
+            &__user-change-password-link {
+                margin-top: 30px;
+            }
+
+            .title {
+                font-weight: bold;
+                font-size: 1.125rem;
+                line-height: 1.3;
+                letter-spacing: $letter-spacing-4;
+                margin: 30px 0 10px 0;
+            }
+
+            .form-input {
+                margin-bottom: 0;
+            }
+
+            .input {
+                border-radius: 0 !important;
+                height: 53px;
+
+                &:focus {
+                    border: 2px solid #FC8507;
+                }
+            }
+
+            button {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    @include mq($max-width: "767px") {
+        .btn-edit-profile {
+            margin-top: 30px;
+        }
+    }
+}

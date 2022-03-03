@@ -1,0 +1,40 @@
+#leader-sales {
+    width: 100%;
+    margin-bottom: 40px;
+
+    .leader-sales {
+        &__title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            letter-spacing: $letter-spacing-4;
+            color: #282828;
+            margin: 0 15px 20px 0;
+
+            .see-all-link {
+                font-weight: normal;
+                font-size: .875rem;
+                line-height: 1;
+                letter-spacing: $letter-spacing-3;
+                text-decoration-line: underline;
+                color: #FC8507;
+            }
+        }
+
+        .card {
+            &__link {
+                margin-top: 18px;
+                font-size: 1rem;
+                line-height: 1.5;
+                letter-spacing: $letter-spacing-3;
+                color: inherit;
+                font-weight: normal;
+                transition: all .3s;
+
+                &:hover {
+                    color: $color-card-hover;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+%templateFontStyle {
+    letter-spacing: 0.04em;
+    color: $color-requisites;
+}
+
+#requisites {
+    .requisites {
+        width: 100%;
+        background: $bg-requisites;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        margin-bottom: 60px;
+
+        &__title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 2.125rem;
+            padding: 40px 40px 15px 40px;
+            @extend %templateFontStyle;
+        }
+
+        &__props {
+            display: flex;
+            font-size: 1rem;
+            line-height: 1.3125rem;
+            padding: 25px 40px;
+            @extend %templateFontStyle;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $border-requisites;
+
+            }
+
+            &:last-child {
+                padding-bottom: 40px;
+            }
+
+            @include mq($max-width: "450px") {
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+        &__props-value {
+            @include mq($min-width: "450px") {
+                width: 50%;
+                margin-left: auto;
+            }
+        }
+    }
+}

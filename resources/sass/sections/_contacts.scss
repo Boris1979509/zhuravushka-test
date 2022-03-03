@@ -1,0 +1,56 @@
+%templateColorStyle {
+    letter-spacing: 0.04em;
+    color: $color-contact;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+#contacts {
+    content: "";
+    background: url('../../images/map.png') no-repeat;
+    height: 398px;
+    max-width: 1920px;
+    display: block;
+
+    .contacts {
+        @extend %templateColorStyle;
+
+        &__content {
+            background: $bg-contact;
+            border-radius: 4px;
+            margin: 60px 0;
+            padding: 40px;
+        }
+
+        &__title {
+            font-weight: bold;
+            font-size: 1.5rem !important;
+            margin-bottom: 20px;
+            @extend %templateColorStyle;
+        }
+
+        &__props-name {
+            font-weight: bold;
+            margin: 0 30px 0 0;
+            min-width: 100px;
+            @extend %templateColorStyle;
+        }
+
+        &__props {
+            display: flex;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+        }
+
+        &__props-value {
+            max-width: 300px;
+        }
+
+        .contact-email-link {
+            text-decoration-line: underline;
+            color: $link-email-contact;
+        }
+    }
+}

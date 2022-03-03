@@ -1,0 +1,101 @@
+/* Start footer */
+footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    .footer {
+        &__footer-top {
+            padding-top: 60px;
+            background-color: $bg-footer-top;
+
+            .footer-top__row {
+                justify-content: space-between;
+
+                .footer__title {
+                    font-weight: bold;
+                    color: $color-footer-title;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                    margin-bottom: 20px;
+                }
+
+                .footer__nav-item {
+                    max-width: 200px;
+                    padding-bottom: 20px;
+
+                    a {
+                        &.footer__link {
+                            position: relative;
+                            padding-bottom: .4rem;
+                            font-size: 1rem !important;
+                            line-height: 1.5;
+                            letter-spacing: 0.04em;
+                            transition: color .2s ease;
+                            @include hoverUnderline($bg-top-bar, 1px, true); // Hover link line
+                        }
+                    }
+                }
+
+                .footer_columns {
+                    column-count: 2;
+                    column-gap: 1.2rem;
+                }
+            }
+        }
+
+        .logo-wrap__row {
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        &__copyright {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            background: $bg-color;
+
+            p {
+                //font-size: 16px;
+                line-height: 22px;
+                //color: #404040;
+                width: 50%;
+                text-align: center;
+                @include mq($max-width: 767px) {
+                    width: 100%;
+                    font-size: .8rem;
+                    padding-bottom: 60px;
+                }
+            }
+        }
+
+        &__social {
+            justify-content: space-between;
+        }
+
+        &__phone {
+            text-align: right;
+            color: $color-footer-title;
+
+            #footer-online-phone {
+                margin-top: 46px;
+                font-size: 1.5rem;
+                line-height: 1.2;
+                font-weight: bold;
+            }
+
+            span {
+                font-size: .875rem;
+                font-weight: normal;
+            }
+        }
+
+        &__catalog {
+            @include mq($max-width: 535px) {
+                display: none;
+            }
+        }
+    }
+}
+
+/* End footer */

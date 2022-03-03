@@ -1,0 +1,418 @@
+%templateBlock {
+    background: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+}
+
+.order-registration {
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    //grid-template-areas: "Sticky Info" "Sticky Info" "Sticky Info" "Sticky Info";
+    grid-template-rows: max-content;
+    grid-row: auto;
+    column-gap: 20px;
+    margin-bottom: 40px;
+
+    .title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        line-height: 1.3;
+        letter-spacing: $letter-spacing-4;
+        margin-bottom: 30px;
+    }
+
+    .invalid-feedback {
+        margin-bottom: -10px;
+    }
+
+    .verify-block {
+        .invalid-feedback, .success-feedback {
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    }
+
+
+    &__contact-form {
+        #request-btn {
+            height: 51px;
+        }
+
+        .form-input {
+            width: 100%;
+        }
+
+        input, textarea {
+            border-radius: 0 !important;
+        }
+
+        .request-block, .verify-block {
+            flex-flow: column;
+
+            .form-input:first-child {
+                margin-bottom: 20px;
+                @include mq($max-width: "609px") {
+                    margin-bottom: 0;
+                }
+            }
+
+            .form-input:last-child {
+                margin-top: 0 !important;
+                @include mq($max-width: "609px") {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    .question-block {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        right: -25px;
+        bottom: -25px;
+        border-radius: 100%;
+
+        .question {
+            font-weight: bold;
+            font-size: 0.875rem;
+            line-height: 2.2;
+            color: #FFFFFF;
+            margin-left: 13px;
+        }
+    }
+
+    .delivery-type, .payment-type {
+        gap: 20px;
+        justify-content: space-between;
+        display: flex;
+        @include mq($max-width: "767px") {
+            flex-flow: column;
+        }
+
+
+        &__saving, &__express, &__cash, &__online, &__transport, &__pick-up {
+            @include orderRadioInput;
+            cursor: pointer;
+            letter-spacing: $letter-spacing-4;
+            position: relative;
+            overflow: hidden;
+            background: #FFFFFF;
+            border: 2px solid #CCCCCC;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .title {
+                font-size: 1rem;
+                line-height: 1.4;
+                align-self: center;
+                margin-left: 25px;
+                margin-bottom: 0;
+            }
+
+            .description {
+                font-size: 0.875rem;
+                line-height: 1.3;
+                margin: 25px 0 33px 65px;
+            }
+
+            .question-block {
+                background-color: #CCCCCC;
+
+                .question {
+                    margin-left: 12px;
+                }
+            }
+
+            &.active {
+                border: 2px solid #FC8507;
+
+                .question-block {
+                    background-color: #FC8507;
+                }
+            }
+        }
+
+        .price {
+            font-size: 1.5rem;
+            line-height: 1.3;
+            letter-spacing: $letter-spacing-3;
+            margin-left: 65px;
+        }
+
+        &__express {
+            .price {
+                font-size: 1rem;
+                line-height: 20px;
+                margin-left: 65px;
+                letter-spacing: $letter-spacing-3;
+                color: #969696;
+
+            }
+        }
+    }
+
+    .delivery-address-block {
+        width: 100%;
+
+        input, textarea {
+            border-radius: 0 !important;
+        }
+
+        .row {
+            column-gap: 20px;
+            flex-flow: inherit;
+            @include mq($max-width: "767px") {
+                flex-flow: column;
+            }
+        }
+    }
+
+    .btn-find-place-map {
+        text-transform: uppercase;
+
+        &:after {
+            @include btnIcon('../../images/icons/search-btn-white.svg')
+        }
+    }
+
+    .date-time-delivery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 30px;
+
+        .date-delivery, .time-delivery {
+            &__title {
+                font-weight: bold;
+                font-size: 0.875rem;
+                line-height: 18px;
+                letter-spacing: $letter-spacing-4;
+                margin-bottom: 10px;
+            }
+        }
+
+        .date-delivery {
+            &__options {
+                display: flex;
+            }
+
+            &__options-item {
+                cursor: pointer;
+                padding: 10px 20px;
+                font-size: 0.875rem;
+                border: 1px solid #ccc;
+                margin-right: -1px;
+                height: fit-content;
+                //flex-basis: 33%;
+                &.active {
+                    border: 1px solid #FC8507;
+                    z-index: 1;
+                }
+            }
+
+            .delivery-date-other-block {
+                position: relative;
+
+                .delivery-date-other {
+                    display: block;
+                    width: inherit;
+                    height: calc(100% - 4px);
+                    border: 1px solid #ccc;
+                    text-indent: 1rem;
+                    font-size: 0.875rem;
+                    @include inputPlaceholder {
+                        font-family: $font-pt-sans;
+                        font-size: 0.875rem;
+                        color: inherit;
+                    }
+                }
+
+                img {
+                    position: absolute;
+                    top: calc((100% - 5px) / 2);
+                    right: 20px;
+                }
+            }
+
+        }
+
+        .time-delivery {
+            select {
+                width: 100%;
+                display: block;
+                padding: 8px 20px;
+                border: 1px solid #ccc;
+                font-family: $font-pt-sans;
+                font-size: 0.875rem;
+                color: inherit;
+                appearance: none; /* убираем дефолнтные стрелочки */
+            }
+
+            .select {
+                background-size: auto;
+                background: url("../../images/icons/order-registration/order-arrow.svg") no-repeat top 50% right 20px;
+            }
+        }
+    }
+
+
+    &__info-container {
+        @extend %templateBlock;
+        position: relative;
+        padding-bottom: 20px !important;
+
+        %templateBlockFonts {
+            font-size: 1rem;
+            line-height: 1.33;
+        }
+
+        .cart-products-wrap {
+            max-height: 150px;
+            overflow: auto;
+            padding: 10px;
+
+            .cart {
+                display: flex;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+
+                &__product-title {
+                    letter-spacing: $letter-spacing-4;
+                    color: #8D8D8D;
+                    width: 50%;
+                    contain: content;
+                }
+
+                &__product-item-total-sum {
+                    @extend %templateBlockFonts;
+                    letter-spacing: $letter-spacing-3;
+                    width: 50%;
+                    align-self: center;
+                    text-align: right;
+                    line-height: 1;
+                }
+
+            }
+        }
+
+
+        .cart-total-wrap {
+
+            .cart-delivery {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 30px;
+
+                &__title {
+                    font-weight: bold;
+                    @extend %templateBlockFonts;
+                    letter-spacing: $letter-spacing-4;
+                    width: 50%;
+                }
+
+                &__total {
+                    @extend %templateBlockFonts;
+                    letter-spacing: $letter-spacing-3;
+                    width: 50%;
+                    text-align: right;
+                }
+            }
+
+            .cart-total {
+                display: flex;
+                margin: 20px -20px 0 -20px;
+                border-top: 1px solid #F2F2F2;
+                padding-top: 20px;
+
+                &__title {
+                    @extend %templateBlockFonts;
+                    width: 50%;
+                    letter-spacing: $letter-spacing-4;
+                    padding-left: 30px;
+                }
+
+                &__total-sum {
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    line-height: 1.3;
+                    letter-spacing: $letter-spacing-3;
+                    width: 50%;
+                    text-align: right;
+                    padding-right: 30px;
+                }
+            }
+        }
+
+        &:after {
+            position: absolute;
+            display: block;
+            bottom: -5px;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            content: "";
+            padding-top: 5px;
+            background: url('../../images/order-border.png') repeat-x;
+        }
+    }
+
+    .confirm-order-container {
+        margin: 30px auto 0;
+        width: calc(100% - 60px);
+
+        &__primary-info {
+            margin-top: 20px;
+            font-size: 0.875rem;
+            line-height: 1.3;
+            letter-spacing: $letter-spacing-4;
+            color: #868686;
+        }
+
+        &__btn {
+            &:after {
+                @include btnIcon("../../images/icons/cart/order-icon-btn.svg");
+            }
+        }
+    }
+
+    .sticky-content {
+        //grid-area: Sticky;
+        grid-row: auto;
+        grid-column: 1 / span 8;
+        @include mq($max-width: "1200px") {
+            grid-column: 1/span 12;
+        }
+    }
+
+    &__select-delivery {
+        @extend %templateBlock;
+        margin-bottom: 20px;
+    }
+
+    &__select-address-delivery {
+        @extend %templateBlock;
+        margin-bottom: 20px;
+    }
+
+    &__select-payment-method {
+        @extend %templateBlock;
+        margin-bottom: 20px;
+    }
+
+    &__contact-form {
+        @extend %templateBlock;
+    }
+
+    &__info {
+        //grid-area: Info;
+        grid-column: 9 / 13;
+        @include mq($max-width: "1200px") {
+            grid-column: 1/span 12;
+            margin-top: 20px;
+        }
+    }
+
+}

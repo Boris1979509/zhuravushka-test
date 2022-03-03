@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin
+Disallow: /login
+Disallow: /compare
+Disallow: /favorite
+Disallow: /cart
+Disallow: /search
+Disallow: /register
+
+Sitemap: https://xn--80aabqvgezrjl8m.xn--p1ai/sitemap.xml
+Host: xn--80aabqvgezrjl8m.xn--p1ai

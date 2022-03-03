@@ -1,0 +1,309 @@
+@mixin inputPlaceholder { // input placeholder
+    $selector: '';
+    $prefixes: (
+        moz: "::-moz",
+        webkit: "::-webkit",
+        ie: ":-ms"
+    );
+    @each $prop, $value in $prefixes {
+        @if $prop != "moz" {
+            $selector: #{$value}-input-placeholder;
+        } @else {
+            $selector: #{$value}-placeholder;
+        }
+        @if & {
+            &#{$selector} {
+                @content;
+            }
+        } @else {
+            #{$selector} {
+                @content;
+            }
+        }
+    }
+    &::placeholder {
+        @content;
+    }
+}
+
+// Hover link line
+@mixin hoverUnderline($color, $px, $link: false) {
+    &:before {
+        content: "";
+        width: 0;
+        height: $px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .2s;
+        background: $color;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    &:hover {
+        // if text change color hover
+        @if $link {
+            color: $color;
+        }
+
+        &:before {
+            width: 100%;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+}
+
+// Fade animation
+@mixin fadeAnimate($class) {
+    -webkit-animation-name: #{ $class };
+    -webkit-animation-duration: 1.5s;
+    animation-name: #{ $class };
+    animation-duration: 1.5s;
+    @-webkit-keyframes #{ $class }
+    {
+        from {
+            opacity: .8
+        }
+        to {
+            opacity: 1
+        }
+    }
+    @keyframes #{ $class }
+    {
+        from {
+            opacity: .8
+        }
+        to {
+            opacity: 1
+        }
+    }
+}
+
+// guarantee block with icon
+@mixin guaranteeBlock {
+    &__item {
+        position: relative;
+        width: 50%;
+
+        @include mq($max-width: "900px") {
+            width: 100%;
+        }
+    }
+
+    &__item-icon {
+        width: 74px;
+        height: 74px;
+        position: absolute;
+        top: 10px;
+        left: 0;
+    }
+
+    &__item-body {
+
+    }
+
+    &__item-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        width: calc(100% - 74px - 20px);
+        margin-left: auto;
+        padding-left: 20px;
+    }
+
+    &__item-description {
+        width: calc(100% - 74px - 20px);
+        margin-left: auto;
+        padding-left: 20px;
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: 0.04em;
+    }
+
+}
+
+/* Accordion style */
+@mixin accordion(
+    $iconBefore: "../../images/icons/plus.svg",
+ $iconAfter: "../../images/icons/minus.svg") {
+    .accordion {
+        border: 1px solid #CCCCCC;
+
+        &__button-item {
+            width: 100%;
+            font-family: inherit;
+            background-color: #fff;
+            font-weight: bold;
+            text-align: left;
+            padding: 20px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s linear;
+            border: none;
+
+            &:after {
+                content: '';
+                background: url($iconBefore) no-repeat;
+                float: right;
+                width: 20px;
+                height: 20px;
+            }
+
+            &.active:after {
+                content: '';
+                background: url($iconAfter) no-repeat;
+                float: right;
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &__content {
+            background-color: white;
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-in-out;
+            line-height: 1.5;
+
+            &:last-child {
+                p:not(.article) {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+                p:last-child {
+                    padding-bottom: 40px;
+                }
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #ccc;
+            }
+
+            .article {
+                font-weight: bold;
+                margin-top: 10px;
+            }
+        }
+    }
+    @include mq($max-width: "767px") {
+        width: 100%;
+    }
+}
+
+/**
+Arrow carousel
+ */
+@mixin arrow($iconName, $deg) {
+    content: "";
+    background: url('../../images/icons/#{ $iconName }') no-repeat;
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto;
+    transform: rotateY($deg);
+}
+
+/**
+Add button icon
+ */
+@mixin btnIcon($url) {
+    content: "";
+    background: url($url) no-repeat;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    //margin-left: 20px;
+    margin-right: 5px;
+    vertical-align: sub;
+}
+
+@mixin orderRadioInput {
+    input[type="radio"] {
+        position: relative;
+        width: 2.5rem;
+        height: 2.5rem;
+        color: $bg-input-radio;
+        border: 1px solid #ccc;
+        border-radius: 100%;
+        appearance: none;
+        outline: 0;
+        cursor: pointer;
+        transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+
+        &::before {
+            position: absolute;
+            content: '';
+            display: block;
+            top: calc((100% - 18px) / 2);
+            left: calc((100% - 8px) / 2);
+            width: 8px;
+            height: 14px;
+            border-style: solid;
+            border-color: white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+
+        &:checked {
+            color: white;
+            border-color: $bg-input-radio;
+            background: $bg-input-radio;
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@mixin cabinet-status($icon, $color) {
+    &:before {
+        content: '';
+        background: url("../../images/icons/cabinet/#{$icon}");
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        margin: 0 10px;
+    }
+
+    .content-block__title-value {
+        color: $color;
+    }
+}
+
+// Media queries
+@mixin custom-device($min, $max) {
+    @include mq($media-type: 'all', $min-width: $min, $max-width: $max) {
+        @content;
+    }
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($bg-color, white, 10%)) {
+    ::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+        border-radius: $size;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+
+    // For Internet Explorer
+    body {
+        scrollbar-face-color: $foreground-color;
+        scrollbar-track-color: $background-color;
+    }
+}
+
